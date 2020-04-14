@@ -1,0 +1,27 @@
+[
+  {
+    "veh_id": 1,
+    "veh_name": "TT",
+    "veh_capacity": 12
+  },
+  {
+    "veh_id": 2,
+    "veh_name": "TT",
+    "veh_capacity": 12
+  },
+  {
+    "veh_id": 3,
+    "veh_name": "Mini Bus",
+    "veh_capacity": 34
+  },
+  {
+    "veh_id": 4,
+    "veh_name": "Mini Bus",
+    "veh_capacity": 34
+  },
+  {
+    "veh_id": 5,
+    "veh_name": "TT",
+    "veh_capacity": 12
+  }
+]

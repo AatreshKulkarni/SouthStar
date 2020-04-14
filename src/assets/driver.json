@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Mahesh",
+    "lic_number": "brg001",
+    "mobile_number": 9686766656
+  },
+  {
+    "id": 2,
+    "name": "Arvind",
+    "lic_number": "brg002",
+    "mobile_number": 9686766654
+  },
+  {
+    "id": 3,
+    "name": "Maruthi",
+    "lic_number": "brg003",
+    "mobile_number": 9686746656
+  },
+  {
+    "id": 4,
+    "name": "Bharath",
+    "lic_number": "brg004",
+    "mobile_number": 9684766656
+  },
+  {
+    "id": 5,
+    "name": "Mousin",
+    "lic_number": "brg005",
+    "mobile_number": 9686466656
+  },
+  {
+    "id": 6,
+    "name": "Mahesh kumar",
+    "lic_number": "brg006",
+    "mobile_number": 9486766656
+  },
+  {
+    "id": 7,
+    "name": "Maheshwar",
+    "lic_number": "brg007",
+    "mobile_number": 9686762654
+  }
+]

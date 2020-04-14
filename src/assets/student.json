@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "name": "Arjun",
+    "class": 4,
+    "stop": "RR Nagar",
+    "school": "Carmel School"
+  },
+  {
+    "id": 2,
+    "name": "Bhim",
+    "class": 5,
+    "stop": "RR Nagar",
+    "school": "Carmel School"
+  },
+  {
+    "id": 3,
+    "name": "Nakul",
+    "class": 3,
+    "stop": "RR Nagar",
+    "school": "Carmel School"
+  },
+  {
+    "id": 4,
+    "name": "Sahadev",
+    "class": 3,
+    "stop": "RR Nagar",
+    "school": "Carmel School"
+  },
+  {
+    "id": 5,
+    "name": "Dharma",
+    "class": 6,
+    "stop": "RR Nagar",
+    "school": "Carmel School"
+  },
+  {
+    "id": 6,
+    "name": "Ankit",
+    "class": 5,
+    "stop": "Uttarahalli",
+    "school": "Carmel School"
+  },
+  {
+    "id": 7,
+    "name": "Arun",
+    "class": 4,
+    "stop": "RR Nagar",
+    "school": "Carmel School"
+  }
+]

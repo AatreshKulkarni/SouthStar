@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="header">Add A Driver</div>
+  <form [formGroup]="createForm" (submit)="createDriver(createForm.value)">
+    <mat-form-field>
+      <input type="text" matInput placeholder="Driver Name" formControlName="name" required>
+      <mat-error *ngIf="createForm.get('name').hasError('required')"> Please Fill This Field</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="License Number" formControlName="lic_number" required>
+      <mat-error *ngIf="createForm.get('lic_number').hasError('required')">Please Fill This Field</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="number" matInput placeholder="Mobile Number" formControlName="mobile_number" required>
+      <mat-error *ngIf="createForm.get('mobile_number').hasError('required')">Please Fill This Field</mat-error>
+    </mat-form-field>
+    <button type="submit" class="btn btn-success" [disabled]="createForm.invalid" >Submit</button>
+    <button (click)="closeDialog()"  class="btn btn-danger">Cancel</button>
+  </form>
+</div>
