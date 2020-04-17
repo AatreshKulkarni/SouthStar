@@ -34,37 +34,37 @@ export class SocketService {
     return this.http.get<any>(this.uri );
   }
 
-  // getAllVehicles(): Observable<any>{
-  //   // return this.http.get<VehicleData[]>('assets/vehicle.json').pipe(
-  //   //   catchError(this.handleError<VehicleData[]>('getAllVehicles', [])));
-  //   return this.http.get<any>(this.url + 'vehicleData');
-  // }
+  getAllVehicles(): Observable<any>{
+    // return this.http.get<VehicleData[]>('assets/vehicle.json').pipe(
+    //   catchError(this.handleError<VehicleData[]>('getAllVehicles', [])));
+    return  // this.http.get<any>(this.url + 'vehicleData');
+  }
 
-  // getAllStudents(): Observable<any>{
-  //   // return this.http.get<StudentData[]>('assets/student.json').pipe(
-  //   //   catchError(this.handleError<StudentData[]>('getAllStudents', [])));
-  //   return this.http.get<any>(this.url + 'studentData');
-  // }
+  getAllStudents(): Observable<any>{
+    // return this.http.get<StudentData[]>('assets/student.json').pipe(
+    //   catchError(this.handleError<StudentData[]>('getAllStudents', [])));
+    return // this.http.get<any>(this.url + 'studentData');
+  }
 
-  // getAllDrivers(): Observable<any> {
-  //   // return this.http.get<DriverData[]>('assets/driver.json').pipe(
-  //   //   catchError(this.handleError<DriverData[]>('getAllDrivers', [])));
-  //   return this.http.get<any>(this.url + 'driverData')
-  // }
+  getAllDrivers(): Observable<any> {
+    // return this.http.get<DriverData[]>('assets/driver.json').pipe(
+    //   catchError(this.handleError<DriverData[]>('getAllDrivers', [])));
+    return // this.http.get<any>(this.url + 'driverData')
+  }
 
-  // addVehicle(vehData):Observable<any>{
-  //   return this.http.post<VehicleData[]>(this.url + 'vehicleData', vehData).pipe(
-  //     catchError(this.handleError<VehicleData[]>('addVehicle', [])));
-  // //  return this.http.post<any>(this.url + 'vehicleData', vehData);
-  // }
-  // addStudent(studData):Observable<any>{
-  //   return this.http.post<StudentData[]>(this.url + 'studentData', studData).pipe(
-  //     catchError(this.handleError<StudentData[]>('addStudent', [])));
-  // //  return this.http.post<any>(this.url + 'vehicleData', vehData);
-  // }
-  // addDriver(driverData):Observable<any>{
-  //   return this.http.post<DriverData[]>(this.url + 'driverData', driverData).pipe(
-  //     catchError(this.handleError<DriverData[]>('addDriver', [])));
-  // //  return this.http.post<any>(this.url + 'vehicleData', vehData);
-  // }
+  addVehicle(vehData):Observable<any>{
+     return  // this.http.post<VehicleData[]>(this.url + 'vehicleData', vehData).pipe(
+    //   catchError(this.handleError<VehicleData[]>('addVehicle', [])));
+  //  return this.http.post<any>(this.url + 'vehicleData', vehData);
+  }
+  addStudent(studData):Observable<any>{
+    return // this.http.post<StudentData[]>(this.url + 'studentData', studData).pipe(
+      // catchError(this.handleError<StudentData[]>('addStudent', [])));
+  //  return this.http.post<any>(this.url + 'vehicleData', vehData);
+  }
+  addDriver(driverData):Observable<any>{
+    return // this.http.post<DriverData[]>(this.url + 'driverData', driverData).pipe(
+     // catchError(this.handleError<DriverData[]>('addDriver', [])));
+  //  return this.http.post<any>(this.url + 'vehicleData', vehData);
+  }
 }
