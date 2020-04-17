@@ -22,10 +22,18 @@ export class MapComponent implements AfterViewInit {
   constructor(private socketService : SocketService) { }
   initializeMap(){
 
-    //this.lngLat = new google.maps.LatLng( 12.97548,  77.745712);
+    this.lngLat = new google.maps.LatLng( 12.97548,  77.745712);
     // console.log(this.lngLat);
 
+    const mapOptions: google.maps.MapOptions = {
+      center: this.lngLat,
+      zoom: 13,
+      fullscreenControl: false,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      streetViewControl: false
+    };
 
+    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
 
 
     // var schoolCircle = new google.maps.Circle({
@@ -55,9 +63,6 @@ export class MapComponent implements AfterViewInit {
       let infoWindow =new google.maps.InfoWindow();
       this.socketService.getAllMarkers().subscribe(res => {
            // res = JSON.parse(JSON.stringify(res));
-            console.log(res);
-            console.log(res['longitude']);
-            console.log(res['longitude']);
             this.lngLat = new google.maps.LatLng( res['latitude'],  res['longitude']);
             let content=`<div class='info_content' id='info01' >
             <div>Device No: ${res['deviceSerialNumber']}</div>
