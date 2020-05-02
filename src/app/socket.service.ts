@@ -4,6 +4,8 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { VehicleData, StudentData, DriverData } from './transport-details/transport';
 import { catchError } from 'rxjs/operators';
 
+import * as io from 'socket.io-client';
+
 
 
 @Injectable({
@@ -11,29 +13,48 @@ import { catchError } from 'rxjs/operators';
 })
 export class SocketService {
 
- // url: string = "http://mybackend.com/api/";
-  uri: any = "http://localhost:3000/gps_data";
-  constructor(private http: HttpClient) { }
+  socket: any;
+  // Node API
+  uri: any = "https://cosmosnodeapi.azurewebsites.net/";
+  // uri: any = "ws://localhost:3000/";
 
-
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
-      this.log(`${operation} failed: ${error.message}`);
-
-      return of(result as T);
-    };
+  constructor(private http: HttpClient) {
+    this.socket = io(this.uri);
   }
 
-  private log(message: string) {
-    console.log(message);
+
+
+  // Getting GPS Data from Node
+  getGPSData(): Observable<any>{
+    return Observable.create((observer) => [
+      this.socket.on('chat', (data) => {
+        observer.next(data);
+      })
+    ])
   }
 
-  getAllMarkers(): Observable<any>{
-    console.log("Hello World");
-    return this.http.get<any>(this.uri );
-  }
+  sendMessage(message) {
+    this.socket.emit('user', message);
+}
 
+
+    // return this.http.get<any>(this.uri );
+  // private handleError<T>(operation = 'operation', result?: T) {
+  //   return (error: any): Observable<T> => {
+  //     console.error(error);
+  //     this.log(`${operation} failed: ${error.message}`);
+
+  //     return of(result as T);
+  //   };
+  // }
+
+  // private log(message: string) {
+  //   console.log(message);
+  // }
+
+
+
+  //  Need to implement these APIs
   getAllVehicles(): Observable<any>{
     // return this.http.get<VehicleData[]>('assets/vehicle.json').pipe(
     //   catchError(this.handleError<VehicleData[]>('getAllVehicles', [])));
