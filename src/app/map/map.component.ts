@@ -39,7 +39,7 @@ export class MapComponent implements AfterViewInit {
 
       const mapOptions: google.maps.MapOptions = {
         center: this.lngLat,
-        zoom: 13,
+        zoom: 15,
         fullscreenControl: false,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         streetViewControl: false
@@ -47,10 +47,21 @@ export class MapComponent implements AfterViewInit {
 
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
 
+      schoolMarker = new google.maps.Marker({
+        position: this.lngLat,
+        map: this.map,
+        icon: 'assets/img/school.png'
+      });
+
       this.socketService.getGPSData().subscribe(res => {
         console.log(res);
+        let content=`<div class='info_content' id='info01' >
+        <div>Device No: ${res['deviceSerialNumber']}</div>
+        <div>Latitude: ${res['latitude']}</div>
+        <div>Longitude: ${res['longitude']}</div>
+        </div>`;
 
-        if(!pos){
+        if(!busMarker){
         let initialPosition = new google.maps.LatLng(res['latitude'], res['longitude']);
         busMarker = new google.maps.Marker(
           {
@@ -58,23 +69,11 @@ export class MapComponent implements AfterViewInit {
            map: this.map,
            icon: "assets/img/bus1.png"
          });
-
-        schoolMarker = new google.maps.Marker({
-          position: initialPosition,
-          map: this.map,
-          icon: 'assets/img/school.png'
-        });
         }
-
-        let content=`<div class='info_content' id='info01' >
-        <div>Device No: ${res['deviceSerialNumber']}</div>
-        <div>Latitude: ${res['latitude']}</div>
-        <div>Longitude: ${res['longitude']}</div>
-        </div>`;
-
-      pos = new google.maps.LatLng( res['latitude'], res['longitude']);
-
-      busMarker.setPosition(pos);
+        else{
+          pos = new google.maps.LatLng( res['latitude'], res['longitude']);
+          busMarker.setPosition(pos);
+        }
 
       google.maps.event.addListener(busMarker, 'mouseover', function(){
         infoWindow.setContent(content);
