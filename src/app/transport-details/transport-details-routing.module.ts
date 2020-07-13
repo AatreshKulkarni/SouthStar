@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { VehicleDetailsComponent } from './vehicle/vehicle-details.component';
-import { StudentDetailsComponent } from './student/student-details.component';
+
 import { DriverDetailsComponent } from './driver/driver-details.component';
 
 const routes: Routes = [
@@ -23,13 +23,7 @@ const routes: Routes = [
           title: 'VehicleDetails'
         }
       },
-      {
-        path: 'studentDetails',
-        component:  StudentDetailsComponent,
-        data: {
-          title: 'ChildDetails'
-        }
-      },
+
       // {
       //   path: 'parentDetails',
       //   component:  VehicleDetailsComponent,

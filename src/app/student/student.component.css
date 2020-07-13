@@ -1,18 +1,14 @@
-td, th {
-  width: 25%;
-}
-
 table {
   width: 100%;
 }
 
-.createButton{
+.createButton {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
   padding-bottom: 5px;
 }
 
-.card-header{
+.card-header {
   background-color: orangered;
 }

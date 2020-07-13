@@ -1,0 +1,301 @@
+<div class="card">
+  <div class="card-body">
+    <h2 class="title">REGISTER SCHOOL</h2>
+    <!-- <form method="POST">
+          <div class="row row-space">
+              <div class="col-4">
+                  <div class="input-group">
+                      <label class="label">School Name</label>
+                      <input class="input--style-4" type="text" name="first_name">
+                  </div>
+              </div>
+              <div class="col-4">
+                  <div class="input-group">
+                      <label class="label">Email Id</label>
+                      <input class="input--style-4" type="text" name="last_name">
+                  </div>
+              </div>
+          </div>
+          <div class="row row-space">
+              <div class="col-2">
+                  <div class="input-group">
+                      <label class="label">Mobile Number</label>
+                      <div class="input-group-icon">
+                          <input class="input--style-4" type="text" name="birthday">
+                      </div>
+                  </div>
+              </div>
+              <div class="col-2">
+                  <div class="input-group">
+                      <label class="label">Address</label>
+                      <textarea name="address" id="" ></textarea>
+                  </div>
+              </div>
+          </div>
+          <div class="row row-space">
+              <div class="col-2">
+                  <div class="input-group">
+                      <label class="label">Latitude</label>
+                      <input class="input--style-4" type="email" name="email">
+                  </div>
+              </div>
+              <div class="col-2">
+                  <div class="input-group">
+                      <label class="label">Longitude</label>
+                      <input class="input--style-4" type="text" name="phone">
+                  </div>
+              </div>
+          </div>
+          <div class="row row-space">
+            <div class="col-2">
+                <div class="input-group">
+                    <label class="label">City</label>
+                    <input class="input--style-4" type="email" name="email">
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="input-group">
+                    <label class="label">State</label>
+                    <input class="input--style-4" type="text" name="phone">
+                </div>
+            </div>
+        </div>
+        <div class="row row-space">
+          <div class="col-2">
+              <div class="input-group">
+                  <label class="label">Country</label>
+                  <input class="input--style-4" type="email" name="email">
+              </div>
+          </div>
+          <div class="col-2">
+              <div class="input-group">
+                  <label class="label">School Registered</label>
+                  <input class="input--style-4" type="text" name="phone">
+              </div>
+          </div>
+      </div>
+      <div class="row row-space">
+        <div class="col-2">
+            <div class="input-group">
+                <label class="label">School Geofence</label>
+                <input class="input--style-4" type="email" name="email">
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="input-group">
+                <label class="label">Record Type</label>
+                <input class="input--style-4" type="text" name="phone">
+            </div>
+        </div>
+    </div>
+
+          <div class="p-t-15">
+              <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+          </div>
+      </form> -->
+    <form [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()">
+      <!-- Username Field -->
+      <div class="row mb-4">
+        <div class="col-6">
+          <input
+            class="form-control"
+            type="text"
+            name="schoolName"
+            formControlName="school_name"
+            placeholder="School Name"
+            [ngClass]="{ 'is-invalid': submitted && f.school_name.errors }"
+            required
+          />
+          <div
+            *ngIf="submitted && f.school_name.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.school_name.errors.required">
+              This Field is required
+            </div>
+          </div>
+          <!-- Validation -->
+        </div>
+        <div class="col-6">
+          <input
+            class="form-control"
+            type="email"
+            name="email"
+            formControlName="email_id"
+            placeholder="Email Id"
+            [ngClass]="{ 'is-invalid': submitted && f.email_id.errors }"
+            required
+          />
+          <div *ngIf="submitted && f.email_id.errors" class="invalid-feedback">
+            <div *ngIf="f.email_id.errors.required">This Field is required</div>
+          </div>
+          <!-- Validation -->
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-6">
+          <input
+            class="form-control"
+            type="number"
+            name="mobile"
+            formControlName="mobile_number"
+            placeholder="Mobile Number"
+            [ngClass]="{ 'is-invalid': submitted && f.mobile_number.errors }"
+            required
+          />
+          <div
+            *ngIf="submitted && f.mobile_number.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.mobile_number.errors.required">
+              This Field is required
+            </div>
+          </div>
+          <!-- Validation -->
+        </div>
+        <div class="col-6">
+          <input
+            class="form-control"
+            type="text"
+            name="geoFence"
+            formControlName="geo_fence"
+            placeholder="Geo Fence"
+            [ngClass]="{ 'is-invalid': submitted && f.geo_fence.errors }"
+            required
+          />
+          <div *ngIf="submitted && f.geo_fence.errors" class="invalid-feedback">
+            <div *ngIf="f.geo_fence.errors.required">
+              This Field is required
+            </div>
+          </div>
+          <!-- Validation -->
+        </div>
+      </div>
+
+      <!-- <div class="row mb-4">
+        <div class="col-6">
+          <input
+            class="form-control"
+            type="number"
+            name="latitude"
+            formControlName="latitude"
+            placeholder="Latitude"
+            [ngClass]="{ 'is-invalid': submitted && f.latitude.errors }"
+            required
+          />
+          <div *ngIf="submitted && f.latitude.errors" class="invalid-feedback">
+            <div *ngIf="f.latitude.errors.required">This Field is required</div>
+          </div>
+
+        </div>
+        <div class="col-6">
+          <input
+            class="form-control"
+            type="number"
+            name="longitude"
+            formControlName="longitude"
+            placeholder="Longitude"
+            [ngClass]="{ 'is-invalid': submitted && f.longitude.errors }"
+            required
+          />
+          <div *ngIf="submitted && f.longitude.errors" class="invalid-feedback">
+            <div *ngIf="f.longitude.errors.required">
+              This Field is required
+            </div>
+          </div>
+
+        </div>
+      </div> -->
+
+      <div class="row mb-4">
+        <div class="col-6">
+          <input
+            class="form-control"
+            type="text"
+            name="city"
+            formControlName="city"
+            placeholder="City"
+            [ngClass]="{ 'is-invalid': submitted && f.city.errors }"
+            required
+          />
+          <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+            <div *ngIf="f.city.errors.required">This Field is required</div>
+          </div>
+          <!-- Validation -->
+        </div>
+        <div class="col-6">
+          <input
+            class="form-control"
+            type="text"
+            name="state"
+            formControlName="state"
+            placeholder="State"
+            [ngClass]="{ 'is-invalid': submitted && f.state.errors }"
+            required
+          />
+          <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+            <div *ngIf="f.state.errors.required">This Field is required</div>
+          </div>
+          <!-- Validation -->
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-6">
+          <input
+            class="form-control"
+            type="text"
+            name="country"
+            formControlName="country"
+            placeholder="Country"
+            [ngClass]="{ 'is-invalid': submitted && f.country.errors }"
+            required
+          />
+          <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+            <div *ngIf="f.country.errors.required">This Field is required</div>
+          </div>
+          <!-- Validation -->
+        </div>
+        <div class="col-6">
+          <textarea
+            class="form-control"
+            name="address"
+            placeholder="Address"
+            cols="30"
+            rows="3"
+            (keydown.enter)="$event.preventDefault()"
+            #address
+            formControlName="address"
+            [ngClass]="{ 'is-invalid': submitted && f.address.errors }"
+            required
+          ></textarea>
+          <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+            <div *ngIf="f.address.errors.required">This Field is required</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        [disabled]="!registerForm.valid || submitted"
+        class="btn btn-dark"
+        type="submit"
+      >
+        REGISTER
+      </button>
+    </form>
+  </div>
+</div>
+
+<div class="card">
+  <button
+    *ngIf="lat"
+    type="button"
+    class="btn btn-success"
+    (click)="confirmLatLong()"
+  >
+    Confirm
+  </button>
+  <div #mapWrapper id="map"></div>
+</div>

@@ -18,7 +18,7 @@ import { DefaultLayoutComponent } from './containers';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
-import { LoginComponent } from './views/login/login.component';
+import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 
 const APP_CONTAINERS = [
@@ -40,19 +40,23 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
-// import { MapComponent } from './map/map.component';
 
-import { SocketService } from './socket.service';
+import { SocketService } from './services/socket.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './material.module';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { DataService } from './data.service';
+import { UserService } from './services/user.service';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { SharedModules } from './shared.module';
+import { AuthGuard } from './services/auth.guard';
 
 @NgModule({
   imports: [
-  BrowserModule,
+    BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     AppAsideModule,
@@ -66,6 +70,7 @@ import { DataService } from './data.service';
     TabsModule.forRoot(),
     ChartsModule,
     MaterialModule,
+    SharedModules
   //  InMemoryWebApiModule.forRoot(DataService)
    // MapModule
   ],
@@ -75,13 +80,17 @@ import { DataService } from './data.service';
     P404Component,
     P500Component,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ResetPasswordComponent,
+    ForgotPasswordComponent
   ],
   providers: [{
     provide: LocationStrategy,
     useClass: HashLocationStrategy
   },
-  SocketService
+  SocketService,
+  UserService,
+  AuthGuard
 ],
   bootstrap: [ AppComponent ]
 })

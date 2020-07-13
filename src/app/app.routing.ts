@@ -6,13 +6,16 @@ import { DefaultLayoutComponent } from './containers';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
-import { LoginComponent } from './views/login/login.component';
+import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './views/register/register.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { AuthGuard } from './services/auth.guard';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'map',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {
@@ -37,6 +40,17 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'resetPassword/:id',
+    component: ResetPasswordComponent
+  },
+  {
+    path: 'forgotPassword',
+    component: ForgotPasswordComponent,
+    data: {
+      title: 'Forgot Password Page'
+    }
+  },
+  {
     path: 'register',
     component: RegisterComponent,
     data: {
@@ -57,6 +71,14 @@ export const routes: Routes = [
       {
         path: 'map',
         loadChildren: () => import('./map/map.module').then(m => m.MapModule)
+      },
+      {
+        path: 'student',
+        loadChildren: () => import('./student/student.module').then(m => m.StudentModule)
+      },
+      {
+        path: 'registerSchool',
+        loadChildren: () => import('./register-school/register-school.module').then(m => m.RegisterSchoolModule)
       },
       {
         path: 'transDetails',

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { VehicleDetailsComponent, VehicleCreateComponent } from './vehicle/vehicle-details.component';
 import { DriverDetailsComponent, DriverCreateComponent } from './driver/driver-details.component';
-import { StudentDetailsComponent, StudentCreateComponent } from './student/student-details.component';
+
 
 import { TransportDetailsRoutingModule } from './transport-details-routing.module';
 import { MaterialModule } from '../material.module';
@@ -23,11 +23,11 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     VehicleDetailsComponent,
     DriverDetailsComponent,
-    StudentDetailsComponent,
+
     VehicleCreateComponent,
-    StudentCreateComponent,
+
     DriverCreateComponent
   ],
-  entryComponents: [VehicleCreateComponent, StudentCreateComponent, DriverCreateComponent]
+  entryComponents: [VehicleCreateComponent,  DriverCreateComponent]
 })
 export class TransportDetailsModule { }

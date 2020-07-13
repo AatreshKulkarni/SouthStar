@@ -52,6 +52,7 @@ createDb(){
       "mobile_number": 9686762654
     }
   ];
+
   let vehicleData =  [
     {
       "id": 1,
@@ -2560,13 +2561,46 @@ createDb(){
 
   ]
 
+  let deviceData = [
+    {
+      deviceID: 861693036845444,
+      lattitude: 12.974998,
+      longitude: 77.746391,
+      speed: 0,
+    },
+    {
+      deviceID: 861693036845445,
+      lattitude: 12.97245,
+      longitude: 77.7499,
+      speed: 0,
+    },
+    {
+      deviceID: 861693036845446,
+      lattitude: 12.969098,
+      longitude: 77.749893,
+      speed: 0,
+    },
+    {
+      deviceID: 861693036845447,
+      lattitude: 12.962018,
+      longitude: 77.747871,
+      speed: 0,
+    },
+    {
+      deviceID: 861693036845448,
+      lattitude: 12.95683,
+      longitude: 77.743721,
+      speed: 0,
+    }
+  ]
 
   // ]
   return {
-    driverData: driverData,
-    vehicleData: vehicleData,
-    studentData: studentData,
-    gpsData: gpsData
+    driverData,
+    vehicleData,
+    studentData,
+    gpsData,
+    deviceData
   };
 }
 }

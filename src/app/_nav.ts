@@ -19,15 +19,16 @@ export const navItems: INavData[] = [
     url: '/map',
     icon: 'icon-map'
   },
-  // {
-  //   name: 'Typography',
-  //   url: '/theme/typography',
-  //   icon: 'icon-pencil'
-  // },
-  // {
-  //   title: true,
-  //   name: 'Components'
-  // },
+  {
+    name: 'Register School',
+    url: '/registerSchool',
+    icon: 'icon-pencil'
+  },
+  {
+    name: 'Student',
+    url: '/student',
+    icon: 'icon-pencil'
+  },
   {
     name: 'Transport Details',
     url: '/transDetails',

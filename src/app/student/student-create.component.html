@@ -1,0 +1,297 @@
+<div class="container">
+  <form
+    [formGroup]="registerStudentForm"
+    (ngSubmit)="createStudent(registerStudentForm)"
+  >
+    <div class="row">
+      <div class="col-6">
+        <h2 class="text-center">Register Student</h2>
+        <div class="add mb-2">
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="onAddStudentButtonClick()"
+          >
+            Add Student
+          </button>
+        </div>
+
+        <div
+          formArrayName="student"
+          *ngFor="
+            let student of registerStudentForm.get('student')['controls'];
+            let i = index
+          "
+        >
+          <div [formGroupName]="i">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="'student_name'+i">Student Name:</label>
+                      <input
+                        type="text"
+                        formControlName="student_name"
+                        placeholder="Student Name"
+                        class="form-control"
+                        id="'student_name'+i"
+                      />
+                      <span
+                        class="text-danger"
+                        *ngIf="
+                          student.get('student_name').errors?.required &&
+                          student.get('student_name').touched
+                        "
+                      >
+                        Student Name is required
+                      </span>
+                    </div>
+
+                    <div
+                      class="form-group"
+                      [ngClass]="{
+                        'is-valid':
+                          student.get('class').invalid &&
+                          student.get('class').touched
+                      }"
+                    >
+                      <label for="'class' + i">Class:</label>
+                      <input
+                        type="text"
+                        formControlName="class"
+                        placeholder="Class"
+                        class="form-control"
+                        id="'class' + i"
+                      />
+                      <span
+                        class="text-danger"
+                        *ngIf="
+                          student.get('class').errors?.required &&
+                          student.get('class').touched
+                        "
+                      >
+                        Class is required
+                      </span>
+                    </div>
+
+                    <div
+                      class="form-group"
+                      [ngClass]="{
+                        'has-error':
+                          student.get('stop_id').invalid &&
+                          student.get('stop_id').touched
+                      }"
+                    >
+                      <label for="'stop_id' + i">Stop ID:</label>
+                      <input
+                        formControlName="stop_id"
+                        placeholder="Stop ID"
+                        class="form-control"
+                        id="'stop_id' + i"
+                      />
+                      <span
+                        class="text-danger"
+                        *ngIf="
+                          student.get('stop_id').errors?.required &&
+                          student.get('stop_id').touched
+                        "
+                      >
+                        Stop ID is required
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="'joining_date'+i">Joining Date</label>
+                      <input
+                        formControlName="joining_date"
+                        id="'joining_date'+i"
+                        type="date"
+                        class="form-control"
+                      />
+                      <span
+                        class="text-danger"
+                        *ngIf="
+                          student.get('joining_date').errors?.required &&
+                          student.get('joining_date').touched
+                        "
+                      >
+                        Joining Date is required
+                      </span>
+                    </div>
+                    <div class="form-group">
+                      <label for="'home_latitude'+1">Latitude:</label>
+                      <input
+                        type="number"
+                        formControlName="home_latitude"
+                        placeholder="Latitude"
+                        class="form-control"
+                        id="'home_latitude'+1"
+                      />
+                      <span
+                        class="text-danger"
+                        *ngIf="
+                          student.get('home_latitude').errors?.required &&
+                          student.get('home_latitude').touched
+                        "
+                      >
+                        Latitude is required
+                      </span>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="'home_longitude'+1">Longitude:</label>
+                      <input
+                        type="number"
+                        formControlName="home_longitude"
+                        placeholder="Longitude"
+                        class="form-control"
+                        id="'home_longitude'+1"
+                      />
+                      <span
+                        class="text-danger"
+                        *ngIf="
+                          student.get('home_longitude').errors?.required &&
+                          student.get('home_longitude').touched
+                        "
+                      >
+                        Longitude is required
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <h2 class="text-center">Register Parent</h2>
+        <div class="add mb-2">
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="onAddParentButtonClick()"
+          >
+            Add Parent
+          </button>
+        </div>
+
+        <div
+          formArrayName="parent"
+          *ngFor="
+            let parent of registerStudentForm.get('parent')['controls'];
+            let i = index
+          "
+        >
+          <div [formGroupName]="i">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="parent_name">Parent Name:</label>
+                      <input
+                        type="text"
+                        formControlName="parent_name"
+                        placeholder="Parent Name"
+                        name="parent_name"
+                        class="form-control"
+                        id="parent_name"
+                      />
+                      <span
+                        class="text-danger"
+                        *ngIf="
+                          parent.get('parent_name').errors?.required &&
+                          parent.get('parent_name').touched
+                        "
+                      >
+                        Parent Name is required.
+                      </span>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="parent_type">Parent Type:</label>
+                      <select
+                        id="parent_type"
+                        formControlName="parent_type"
+                        name="parent_type"
+                        class="form-control selectpicker"
+                      >
+                        <option
+                          *ngFor="let parent of parentType"
+                          [value]="parent"
+                        >
+                          {{ parent }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="parent_number">Mob Number:</label>
+                      <input
+                        type="text"
+                        formControlName="parent_number"
+                        placeholder="Class"
+                        name="parent_number"
+                        class="form-control"
+                        id="parent_number"
+                      />
+                      <span
+                        class="text-danger"
+                        *ngIf="
+                          parent.get('parent_number').errors?.required &&
+                          parent.get('parent_number').touched
+                        "
+                      >
+                        Mobile Number is required.
+                      </span>
+                      <span
+                        class="text-danger"
+                        *ngIf="parent.get('parent_number').errors?.pattern"
+                      >
+                        Please, Enter 10 digit Mobile Number.
+                      </span>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="email_id">Email ID:</label>
+                      <input
+                        formControlName="email_id"
+                        placeholder="Email ID"
+                        name="email_id"
+                        class="form-control"
+                        id="email_id"
+                      />
+                      <span
+                        class="text-danger"
+                        *ngIf="
+                          parent.get('email_id').errors?.required &&
+                          parent.get('email_id').touched
+                        "
+                      >
+                        Email ID is required.
+                      </span>
+                      <span
+                        class="text-danger"
+                        *ngIf="parent.get('email_id').errors?.email"
+                      >
+                        Please, Enter Valid Email ID.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button [disabled]="!registerStudentForm.valid" class="btn btn-primary">
+      Submit
+    </button>
+  </form>
+</div>
